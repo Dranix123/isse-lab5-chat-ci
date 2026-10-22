@@ -127,7 +127,7 @@ def update_message(message_id):
 def delete_message(message_id):
     for index, record in enumerate(messages):
         if record["id"] == message_id:
-            messages.pop(index)
+            messages[index]
             save_messages()
             return jsonify(message="删除成功")
     return jsonify(error="聊天记录不存在"), 404
