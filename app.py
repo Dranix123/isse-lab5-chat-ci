@@ -11,8 +11,9 @@ app = Flask(__name__)
 app.json.ensure_ascii = False
 messages = []
 next_id = 1
-DATA_FILE = Path(__file__).parent / "data" / "messages.json"
-CONVERSATIONS_FILE = Path(__file__).parent / "data" / "conversations.json"
+DATA_DIR = Path(os.environ.get("LAB5_DATA_DIR", Path(__file__).parent / "data"))
+DATA_FILE = DATA_DIR / "messages.json"
+CONVERSATIONS_FILE = DATA_DIR / "conversations.json"
 load_dotenv()
 
 
